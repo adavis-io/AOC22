@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-AOC22.Day1 soln = new AOC22.Day1();
+string inputfile = "day2_1.txt";
+AOC22.Day2 soln = new AOC22.Day2();
 
-soln.part1("day1_1.txt");
-soln.part2("day1_1.txt");
+soln.part1(inputfile);
+soln.part2(inputfile);
