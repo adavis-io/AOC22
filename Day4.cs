@@ -8,6 +8,9 @@ namespace AOC22
 {   
     internal class Day4 : Day
     {
+        public Day4(bool test) : base(4, test)
+        {
+        }
         public class Elf
         {
             public int upper = 0;
@@ -32,10 +35,10 @@ namespace AOC22
             }
         }
 
-        public void part1(string filename)
+        public override void Part1()
         {
-            Console.Write("Part 1:");
-            var pairs= load(filename);
+            Console.Write("\tPart 1: ");
+            var pairs= this.Load();
 
             int fully_contained = 0;
 
@@ -53,10 +56,10 @@ namespace AOC22
             Console.WriteLine(fully_contained);
         }
 
-        public void part2(string filename)
+        public override void Part2()
         {
-            Console.Write("Part 2:");
-            var pairs= load(filename);
+            Console.Write("\tPart 2: ");
+            var pairs= this.Load();
 
             int overlap = 0;
 

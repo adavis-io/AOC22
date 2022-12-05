@@ -4,8 +4,11 @@ using System.Text;
 
 namespace AOC22
 {
-    internal class Day2
+    internal class Day2 : Day
     {
+        public Day2(bool test) : base(2, test)
+        {
+        }
         private Dictionary<string, int> scores = new Dictionary<string, int>()
         {
             {"A X", 4},
@@ -30,58 +33,35 @@ namespace AOC22
             {"C Z", 7},
             {"C Y", 6},
         };
-        public void part1(string filename)
+        public override void Part1()
         {
-            Console.Write("Part 1: ");
-         
-            var inputfile = String.Format("../../../inputs/{0}", filename);
-            var input_path = Path.GetFullPath(inputfile);
+            Console.Write("\tPart 1: ");
+
+            var lines = this.Load();
 
             int score = 0;
-            if (!File.Exists(input_path))
+            foreach (var line in lines)
             {
-                Console.WriteLine(String.Format("File not found: {0}", input_path));
-                return;
+                score += this.scores[line];
             }
+            
 
-            using (StreamReader sr = File.OpenText(input_path))
-            {
-                string s;
-                while ((s = sr.ReadLine()) != null)
-                {
-                    score += this.scores[s];
-
-                }
-            }
-
-            Console.WriteLine(String.Format("Score: {0}", score));
+            Console.WriteLine(String.Format("{0}", score));
         }
 
-        public void part2(string filename)
+        public override void Part2()
         {
-            Console.Write("Part 2: ");
+            Console.Write("\tPart 2: ");
 
-            var inputfile = String.Format("../../../inputs/{0}", filename);
-            var input_path = Path.GetFullPath(inputfile);
+            var lines = this.Load();
 
             int score = 0;
-            if (!File.Exists(input_path))
+            foreach (var line in lines)
             {
-                Console.WriteLine(String.Format("File not found: {0}", input_path));
-                return;
+                score += this.scores_real[line];
             }
 
-            using (StreamReader sr = File.OpenText(input_path))
-            {
-                string s;
-                while ((s = sr.ReadLine()) != null)
-                {
-                    score += this.scores_real[s];
-
-                }
-            }
-
-            Console.WriteLine(String.Format("Score: {0}", score));
+            Console.WriteLine(String.Format("{0}", score));
         }
 
     }

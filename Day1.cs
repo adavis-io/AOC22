@@ -4,47 +4,20 @@ using System.Text;
 
 namespace AOC22
 {
-    internal class Day1
+    public class Day1 : Day
     {
-        public void part1(string filename)
+        public class Elf
         {
-            Console.Write("Part 1: ");
-            //Console.WriteLine(input_path);
+            public int energy;
+            public Elf(int start_energy)
+            {
+                energy = start_energy;
 
-            List<Elf> elves = load(filename);
-
-            elves.Sort(delegate(Elf e1, Elf e2) { return e1.energy.CompareTo(e2.energy); });
-
-            elves.Reverse();
-
-            Console.WriteLine(elves[0].energy.ToString());
-
-        }
-
-        public void part2(string filename)
-        {
-            Console.Write("Part 2: ");
-            List<Elf> elves = load(filename);
-
-            elves.Sort(delegate (Elf e1, Elf e2) { return e1.energy.CompareTo(e2.energy); });
-
-            elves.Reverse();
-
-            List<Elf> top3 = elves.GetRange(0, 3);
-
-            int total = 0;
-              
-            foreach (Elf e in top3)
-            {   
-                //Console.WriteLine(e.energy.ToString());
-                total += e.energy;
             }
-            Console.WriteLine(total.ToString());
         }
-
-
-        private List<Elf> load(string filename)
+        new public List<Elf> Load()
         {
+            var filename = this.filename;
             string inputfile = String.Format("../../../inputs/{0}", filename);
             string input_path = Path.GetFullPath(inputfile);
 
@@ -59,7 +32,7 @@ namespace AOC22
             using (StreamReader sr = File.OpenText(input_path))
             {
                 string s;
-                while((s = sr.ReadLine()) != null)
+                while ((s = sr.ReadLine()) != null)
                 {
                     if (s == "")
                     {
@@ -77,14 +50,46 @@ namespace AOC22
             elves.Add(cur_elf);
             return elves;
         }
-    }
-    internal class Elf
-    {
-        public int energy;
-        public Elf(int start_energy)
-        {
-            energy = start_energy;
 
+        public Day1(bool test) : base(1, test)
+        {
+        }
+
+        public override void Part1()
+        {
+            Console.Write("\tPart 1: ");
+            //Console.WriteLine(input_path);
+
+            List<Elf> elves = this.Load();
+
+            elves.Sort(delegate (Elf e1, Elf e2) { return e1.energy.CompareTo(e2.energy); });
+
+            elves.Reverse();
+
+            Console.WriteLine(elves[0].energy.ToString());
+
+        }
+
+         public override void Part2()
+        {
+            Console.Write("\tPart 2: ");
+            List<Elf> elves = this.Load();
+
+            elves.Sort(delegate (Elf e1, Elf e2) { return e1.energy.CompareTo(e2.energy); });
+
+            elves.Reverse();
+
+            List<Elf> top3 = elves.GetRange(0, 3);
+
+            int total = 0;
+
+            foreach (Elf e in top3)
+            {
+                //Console.WriteLine(e.energy.ToString());
+                total += e.energy;
+            }
+            Console.WriteLine(total.ToString());
         }
     }
 }
+

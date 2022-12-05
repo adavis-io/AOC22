@@ -6,29 +6,10 @@ using System.Threading.Tasks;
 
 namespace AOC22
 {
-    internal class Day3
+    internal class Day3 : Day
     {
-        internal List<string> load(string filename)
+        public Day3(bool test) : base(3, test)
         {
-            var inputfile = String.Format("../../../inputs/{0}", filename);
-            var input_path = Path.GetFullPath(inputfile);
-
-            List<string> packs = new List<string>();
-            if (!File.Exists(input_path))
-            {
-                Console.WriteLine(String.Format("File not found: {0}", input_path));
-                return packs;
-            }
-
-            using (StreamReader sr = File.OpenText(input_path))
-            {
-                string s;
-                while ((s = sr.ReadLine()) != null)
-                {
-                    packs.Add(s);
-                }
-            }
-            return packs;
         }
         int priority(char c)
         {
@@ -50,10 +31,10 @@ namespace AOC22
             }
             else return 0;
         }
-        public void part1(string filename)
+        public override void Part1()
         {
-            Console.Write("Part 1:");
-            var packs = this.load(filename);
+            Console.Write("\tPart 1: ");
+            var packs = this.Load();
 
             int priority_total = 0;
 
@@ -70,10 +51,10 @@ namespace AOC22
 
             Console.WriteLine(priority_total.ToString());
         }
-        public void part2(string filename)
+        public override void Part2()
         {
-            Console.Write("Part 2:");
-            var packs = this.load(filename);
+            Console.Write("\tPart 2: ");
+            var packs = this.Load();
 
             int priority_total = 0;
 

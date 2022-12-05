@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace AOC22
 {
-    internal class Day
-    {
-        public List<string> load(string filename)
+    public class Day
+    {   
+        public string filename = "";
+        public string name = "";
+        public Day(int daynum, bool test)
         {
+            this.filename = String.Format("day{0}{1}.txt", daynum, test ? "_test" : "");
+            this.name = String.Format("Day {0}", daynum);
+        }
+        public List<string> Load()
+        {
+            var filename = this.filename;
             var inputfile = String.Format("../../../inputs/{0}", filename);
             var input_path = Path.GetFullPath(inputfile);
 
@@ -29,6 +37,15 @@ namespace AOC22
                 }
             }
             return lines;
+        }
+        public virtual void Part1()
+        {
+
+        }
+
+        public virtual void Part2()
+        {
+
         }
     }
 }
