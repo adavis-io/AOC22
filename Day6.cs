@@ -20,7 +20,7 @@ namespace AOC22
             foreach (var message in lines)
             {
 
-                int pkt_start_index = 0;
+                int msg_start_index = 0;
                 for (int i = 3; i < message.Length; i++)
                 {
                     var msg_segment = message.Substring(i - 3, 4);
@@ -29,11 +29,11 @@ namespace AOC22
 
                     if (msg_set.Count == 4)
                     {
-                        pkt_start_index = i + 1;
+                        msg_start_index = i + 1;
                         break;
                     }
                 }
-                Console.WriteLine(pkt_start_index);
+                Console.WriteLine(msg_start_index);
             }
         }
         public override void Part2()
