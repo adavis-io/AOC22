@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 List<AOC22.Day> days = new();
-bool test = true;
+bool test = false;
 
 //days.Add(new AOC22.Day1(test));
 //days.Add(new AOC22.Day2(test));
