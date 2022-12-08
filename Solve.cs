@@ -9,8 +9,8 @@ bool test = false;
 //days.Add(new AOC22.Day4(test));
 //days.Add(new AOC22.Day5(test));
 //days.Add(new AOC22.Day6(test));
-days.Add(new AOC22.Day7(test));
-
+//days.Add(new AOC22.Day7(test));
+days.Add(new AOC22.Day8(test));
 foreach (var day in days)
 {
     Console.WriteLine(day.name);
