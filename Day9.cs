@@ -31,41 +31,17 @@ namespace AOC22
             {
                 var dx = (knots[i - 1].x - knots[i].x);
                 var dy = (knots[i - 1].y - knots[i].y);
-                var distance = Math.Abs(dx) + Math.Abs(dy);
 
                 var tail = knots[i];
- 
-                if (dx > 1)
+
+                if (Math.Abs(dx) > 1 || Math.Abs(dy) > 1)
                 {
-                    tail.x += 1;
-                }
-                else if (dx < -1)
-                {
-                    tail.x -= 1;
-                }
-                else if (dy > 1)
-                {
-                    tail.y += 1;
-                }
-                else if (dy < -1)
-                {
-                    tail.y -= 1;
-                }
-                if (distance == 3)
-                {
-                    if (Math.Abs(dy) == 2)
-                    {
-                        tail.x += dx;
-                    }
-                    if (Math.Abs(dx) == 2)
-                    {
-                        tail.y += dy;
-                    }
+                    tail.x += Math.Sign(dx);
+                    tail.y += Math.Sign(dy);
                 }
 
                 knots[i] = tail;
 
-                //Draw(-11, 14, -5, 15);
                 if (i == knots.Count - 1)
                 {
                     if (!visits.ContainsKey(tail))
@@ -110,8 +86,6 @@ namespace AOC22
                     }
                     knots[0] = head;
                     UpdatePos(1);
-                    Draw(0,5,0,4);
-                    //Draw(-11, 14, -5, 15);
                 }
             }
             public void Move(string command)
@@ -212,13 +186,9 @@ namespace AOC22
 
             Rope r = new Rope(10);
 
-            Console.WriteLine();
-            r.Draw(0,5,0,4);
             foreach (var line in lines)
             {
-                Console.WriteLine(line);
                 r.Move(line);
-                //r.Draw(-11, 14, -5, 15);
             }
 
             Console.WriteLine(r.visits.Count);
