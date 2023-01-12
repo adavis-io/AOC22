@@ -11,7 +11,10 @@ bool test = false;
 //days.Add(new AOC22.Day6(test));
 //days.Add(new AOC22.Day7(test));
 //days.Add(new AOC22.Day8(test));
-days.Add(new AOC22.Day9(test));
+//days.Add(new AOC22.Day9(test));
+//days.Add(new AOC22.Day10(test));
+//days.Add(new AOC22.Day11(test));
+days.Add(new AOC22.Day12(test));
 
 foreach (var day in days)
 {
