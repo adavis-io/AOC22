@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 List<AOC22.Day> days = new();
-bool test = false;
+bool test = truee;
 
 //days.Add(new AOC22.Day1(test));
 //days.Add(new AOC22.Day2(test));
@@ -14,7 +14,9 @@ bool test = false;
 //days.Add(new AOC22.Day9(test));
 //days.Add(new AOC22.Day10(test));
 //days.Add(new AOC22.Day11(test));
-days.Add(new AOC22.Day12(test));
+//days.Add(new AOC22.Day12(test));
+//days.Add(new AOC22.Day13(test));
+days.Add(new AOC22.Day14(test));
 
 foreach (var day in days)
 {
