@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "AOC22-test": {
+      "commandName": "Project",
+      "commandLineArgs": "--test"
+    },
+    "AOC22-full": {
+      "commandName": "Project"
+    }
+  }
+}

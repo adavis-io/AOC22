@@ -10,10 +10,12 @@ namespace AOC22
     {   
         public string filename = "";
         public string name = "";
+        public bool test = false;
         public Day(int daynum, bool test)
         {
             this.filename = String.Format("day{0}{1}.txt", daynum, test ? "_test" : "");
             this.name = String.Format("Day {0}", daynum);
+            this.test = test;
         }
         public List<string> Load()
         {
