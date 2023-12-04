@@ -436,7 +436,7 @@ namespace AOC22
             }
 
             Console.WriteLine("AddSand calls: {0}, canvas entities: {1}", sandcount, c.SandCount());
-
+            //Console.WriteLine(c.ToString());
         }
 
         public override void Part2()
@@ -466,6 +466,7 @@ namespace AOC22
             }
 
             Console.WriteLine("AddSand calls: {0}, canvas entities: {1}", sandcount, c.SandCount());
+            //Console.WriteLine(c.ToString());
         }
     }
 }

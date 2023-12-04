@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace AOC22
 {
-    public class DayN : Day
+    public class DayN(bool test) : Day(1, test)
     {
-        public DayN(bool test) : base(1, test)
-        { 
-        }
-
         public override void Part1()
         {
             Console.Write("\tPart 1: ");
